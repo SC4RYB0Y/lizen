@@ -50,6 +50,10 @@
       if (typeof window.lenis !== 'undefined' && typeof window.lenis.start === 'function') window.lenis.start();
       if (typeof window.__startBackgroundMusic === 'function') window.__startBackgroundMusic();
     } else {
+      const errorText = error.querySelector('.pin-error-text');
+      if (errorText) {
+        errorText.textContent = 'o code é a nossa data';
+      }
       error.classList.add('is-visible');
       pinCard.classList.add('is-error');
       window.setTimeout(() => pinCard.classList.remove('is-error'), 600);
