@@ -35,6 +35,7 @@
 
   if (!IS_YOUTUBE) {
     audio.src = AUDIO_SRC;
+    audio.loop = true;
   } else {
     audio.removeAttribute('src');
   }
@@ -165,7 +166,14 @@
             startYouTubeTimeUpdates();
             resolve(ytPlayer);
           },
-          onStateChange: onYouTubeStateChange
+          onStateChange: event => {
+            if (event.data === YT.PlayerState.ENDED){
+              if (typeof ytPlayer.playVideo === 'function'){
+                ytPlayer.playVideo();
+              }
+            }
+            onYouTubeStateChange(event);
+          }
         }
       });
     }));
