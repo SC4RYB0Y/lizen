@@ -51,8 +51,12 @@
       if (typeof window.__startBackgroundMusic === 'function') window.__startBackgroundMusic();
     } else {
       const errorText = error.querySelector('.pin-error-text');
+      const errorHint = error.querySelector('.pin-error-hint');
       if (errorText) {
-        errorText.textContent = 'o code é a nossa data';
+        errorText.textContent = 'Não é bem isso — tente novamente.';
+      }
+      if (errorHint) {
+        errorHint.textContent = 'Hint: O pin/código é a nossa data';
       }
       error.classList.add('is-visible');
       pinCard.classList.add('is-error');
