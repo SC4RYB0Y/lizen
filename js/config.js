@@ -34,7 +34,7 @@
     },
     tierOrder: ['minimal', 'low', 'medium', 'high'],
     countdown: {
-      exactDate: new Date(2027, 6, 27)
+      exactDate: new Date(2026, 7, 21)
     },
     audio: {
       storeKey: 'marlize-garden-audio-state',
