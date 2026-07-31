@@ -53,10 +53,10 @@
       const errorText = error.querySelector('.pin-error-text');
       const errorHint = error.querySelector('.pin-error-hint');
       if (errorText) {
-        errorText.textContent = 'Não é bem isso — tente novamente.';
+        errorText.textContent = 'Errado - tente novamente';
       }
       if (errorHint) {
-        errorHint.textContent = 'Hint: O pin/código é a nossa data';
+        errorHint.textContent = 'Hint: A nossa data';
       }
       error.classList.add('is-visible');
       pinCard.classList.add('is-error');
