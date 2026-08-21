@@ -86,6 +86,55 @@
 .nav-chapter-num{ color:var(--rose-soft); font-weight:500; transition:color var(--dur-med) ease; }
 .nav-chapter-sep{ opacity:.5; }
 
+/* Header used by the quiet page revealed after the countdown bloom. */
+.bloom-page-nav{
+  display:none;
+  position:fixed; top:0; left:0; right:0; z-index:60;
+  min-height:calc(var(--nav-h) + env(safe-area-inset-top, 0px));
+  padding:env(safe-area-inset-top, 0px) max(clamp(16px,4vw,32px), env(safe-area-inset-left, 0px)) 0 max(clamp(16px,4vw,32px), env(safe-area-inset-right, 0px));
+  align-items:center; justify-content:center; gap:32px;
+  background:rgba(23,13,19,.18);
+}
+.bloom-page-links{
+  display:flex; align-items:center; justify-content:center; gap:clamp(18px,2.4vw,34px);
+  list-style:none;
+}
+.bloom-page-links a{
+  font-family:var(--body); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ivory-dim); white-space:nowrap; transition:color var(--dur-fast) ease;
+}
+.bloom-page-links a:hover, .bloom-page-links a:focus-visible{ color:var(--rose-bright); }
+
+html.bloom-page-active .nav-bar,
+html.bloom-page-active .garden-index,
+html.bloom-page-active .scroll-progress,
+html.bloom-page-active #reasons,
+html.bloom-page-active #countdown,
+html.bloom-page-active #finale,
+html.bloom-page-active footer{ display:none; }
+html.bloom-page-active .bloom-page-nav{ display:flex; }
+html.bloom-page-active #messageTitle{
+  max-width:900px;
+  margin-left:auto;
+  margin-right:auto;
+  font-size:clamp(1.25rem,3vw,2.2rem);
+  line-height:1.3;
+}
+.bloom-time-notice{
+  display:none; position:fixed; inset:0; z-index:120;
+  align-items:center; justify-content:center; padding:24px;
+  background:rgba(23,13,19,.72); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+}
+.bloom-time-notice.open{ display:flex; }
+.bloom-time-notice-card{
+  width:min(100%,560px); padding:clamp(28px,5vw,48px); text-align:center;
+  background:var(--bg-plum-2); border:1px solid rgba(247,236,227,.16);
+  box-shadow:0 24px 70px rgba(0,0,0,.5);
+}
+.bloom-time-notice-card .eyebrow{ justify-content:center; }
+.bloom-time-notice-card h2{ margin-top:18px; font-family:var(--display); font-size:clamp(1.5rem,4vw,2.5rem); font-weight:400; line-height:1.15; color:var(--ivory); }
+.bloom-time-notice-card .finale-btn{ margin-top:28px; }
+
 /* full-screen index — reveal now blooms from the toggle's true
    position (JS sets --reveal-x/--reveal-y) instead of a hard-coded
    corner, so it stays anchored to the button at every breakpoint */

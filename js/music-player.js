@@ -22,6 +22,7 @@
   const TARGET_VOL = cfg.targetVolume != null ? cfg.targetVolume : 0.85;
   const SAVE_MS = cfg.saveIntervalMs || 4000;
   const AUDIO_SRC = cfg.src || './assets/audio/to-summer-from-cole.mp3';
+  const BLOOM_AUDIO_SRC = cfg.bloomSrc || AUDIO_SRC;
   const AUTO_START = cfg.autoStart !== false && !document.getElementById('pinGate');
   const IS_YOUTUBE = /^https?:\/\/(?:www\.)?(?:youtube\.com\/watch|youtu\.be\/)/i.test(AUDIO_SRC);
   const YOUTUBE_VIDEO_ID = IS_YOUTUBE ? parseYouTubeVideoId(AUDIO_SRC) : null;
@@ -36,6 +37,22 @@
   if (!IS_YOUTUBE) {
     audio.src = AUDIO_SRC;
     audio.loop = true;
+    window.setBloomAudio = function(active){
+      const nextSrc = active ? BLOOM_AUDIO_SRC : AUDIO_SRC;
+      if (nextSrc === audio.src) return;
+      const wasPlaying = !audio.paused;
+      audio.pause();
+      audio.dataset.bloomActive = String(active);
+      audio.src = nextSrc;
+      audio.load();
+      if (wasPlaying) audio.play().catch(() => {});
+    };
+    audio.addEventListener('error', () => {
+      if (audio.dataset.bloomActive !== 'true') return;
+      audio.dataset.bloomActive = 'false';
+      audio.src = AUDIO_SRC;
+      audio.load();
+    });
   } else {
     audio.removeAttribute('src');
   }

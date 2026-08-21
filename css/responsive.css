@@ -51,6 +51,11 @@ html{ font-size: clamp(14px, 1.6vw, 18px); -webkit-text-size-adjust:100%; -ms-te
   .nav-links::-webkit-scrollbar{ display:none; }
   .nav-links a{ padding:6px 1px; } /* bigger tap target, same look */
   .bloom-toggle{ display:none !important; }
+
+  .bloom-page-nav{ align-items:flex-start; flex-wrap:wrap; gap:4px 18px; padding-top:calc(env(safe-area-inset-top,0px) + 14px); padding-bottom:12px; }
+  .bloom-page-links{ width:100%; justify-content:flex-start; overflow-x:auto; gap:20px; padding-bottom:2px; scrollbar-width:none; }
+  .bloom-page-links::-webkit-scrollbar{ display:none; }
+  .bloom-page-links a{ padding:10px 8px; font-size:1rem; }
 }
 
 /* Tablet / large phone landscape */

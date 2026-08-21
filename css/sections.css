@@ -63,6 +63,8 @@ section{ position:relative; z-index:1; padding: var(--pad-y) var(--pad-x); }
   border-radius:6px;
   background: rgba(23,13,19,.04);
 }
+html:not(.bloom-page-active) .press-card [data-bloom-only="true"]{ display:none; }
+html.bloom-page-active .press-card [data-main-only="true"]{ display:none; }
 .media-slide{
   position:absolute;
   inset:0;
@@ -261,6 +263,13 @@ section{ position:relative; z-index:1; padding: var(--pad-y) var(--pad-x); }
 .dial circle{ fill:none; stroke-width:1.4; }
 .dial .track{ stroke: rgba(247,236,227,.08); }
 .dial .prog{ stroke: var(--rose-bright); stroke-linecap:round; transition: stroke-dashoffset 1s var(--ease-lux); }
+.countdown-bloom-btn{
+  display:flex;
+  width:fit-content;
+  margin:clamp(32px,5vh,48px) auto 0;
+  padding:30px 44px;
+  font-size:1.5rem;
+}
 
 /* ============================================================
    FINALE — full bloom

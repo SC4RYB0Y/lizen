@@ -193,13 +193,30 @@
   </div>
 </nav>
 
+<div class="bloom-page-nav" id="bloomPageNav" aria-label="Navegação da página de florada" aria-hidden="true">
+  <ul class="bloom-page-links">
+    <li><a href="#hero">Início</a></li>
+    <li><a href="#gallery">Galeria</a></li>
+    <li><a href="#message">Carta</a></li>
+    <li><a href="#playlist">Canção</a></li>
+  </ul>
+</div>
+
+<div class="bloom-time-notice" id="bloomTimeNotice" role="alertdialog" aria-modal="true" aria-labelledby="bloomTimeNoticeTitle" aria-hidden="true">
+  <div class="bloom-time-notice-card">
+    <p class="eyebrow">Ainda não é o momento</p>
+    <h2 id="bloomTimeNoticeTitle">O conteúdo só estará disponível quando forem pontualmente 21:08:25.</h2>
+    <button type="button" class="finale-btn" id="closeBloomTimeNotice">Fechar</button>
+  </div>
+</div>
+
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-content">
     <p class="eyebrow" id="heroEyebrow">Um jardim, crescendo em silêncio para você</p>
-    <h1 class="hero-name">Marlize</h1>
-    <p class="hero-sub">está em plena floração hoje</p>
-    <p class="hero-line">Foi numa Quinta-feira qualquer em que você se tornou a razão pela qual meus dias fazem sentido. Hoje, o jardim inteiro se volta para você.</p>
+    <h1 class="hero-name" id="heroName">Marlize</h1>
+    <p class="hero-sub" id="heroSub">está em plena floração hoje</p>
+    <p class="hero-line" id="heroLine">Foi numa Quinta-feira qualquer em que você se tornou a razão pela qual meus dias fazem sentido. Hoje, o jardim inteiro se volta para você.</p>
     <a href="#gallery" class="hero-cta" data-magnetic>
       <span class="cta-txt">Entre no jardim</span>
       <span class="cta-line"></span>
@@ -212,30 +229,32 @@
 <!-- GALLERY -->
 <section id="gallery">
   <div class="section-head">
-    <p class="eyebrow">Coleção de espécimes</p>
+    <p class="eyebrow" id="galleryEyebrow">Coleção de espécimes</p>
     <h2>Pressionado entre estas páginas</h2>
-    <p>Cinco momentos que eu não podia deixar desaparecer, preservados exatamente como eram.</p>
+    <p id="galleryDescription">Cinco momentos que eu não podia deixar desaparecer, preservados exatamente como eram.</p>
     <p class="memory-counter" aria-hidden="true"><span id="memoryCount">0</span> memórias, prensadas</p>
   </div>
 
   <div class="press-field" id="pressField">
-    <figure class="press-card press-1" data-depth="0.4" tabindex="0"><span class="tag">Nº 01</span><img src="./assets/images/01.JPG" width="1080" height="1920" alt="Marlize — a foto à qual sempre volto" loading="lazy" decoding="async"/><figcaption class="cap">esta aqui, à qual sempre volto</figcaption></figure>
+    <figure class="press-card press-1" data-depth="0.4" tabindex="0"><span class="tag">Nº 01</span><img src="./assets/images/01.JPG" data-main-only="true" width="1080" height="1920" alt="Marlize — a foto à qual sempre volto" loading="lazy" decoding="async"/><img src="./assets/images/B7.jpeg" data-bloom-only="true" alt="Marlize — memória B7" loading="lazy" decoding="async"/><img src="./assets/images/B1.jpeg" data-bloom-only="true" alt="Marlize — memória B1" loading="lazy" decoding="async"/><figcaption class="cap">esta aqui, à qual sempre volto</figcaption></figure>
     <figure class="press-card press-2" data-depth="0.7" tabindex="0">
       <span class="tag">Nº 02</span>
-      <img src="./assets/images/02.png" alt="Marlize rindo, pega de surpresa (foto 02)" loading="lazy" decoding="async"/>
-      <video preload="metadata">
+      <img src="./assets/images/02.png" data-main-only="true" alt="Marlize rindo, pega de surpresa (foto 02)" loading="lazy" decoding="async"/>
+      <img src="./assets/images/B2.jpeg" data-bloom-only="true" alt="Marlize — memória B2" loading="lazy" decoding="async"/>
+      <img src="./assets/images/B4.jpeg" data-bloom-only="true" alt="Marlize — memória B4" loading="lazy" decoding="async"/>
+      <video data-main-only="true" preload="metadata">
         <source src="./assets/images/02.mp4" type="video/mp4">
         Your browser does not support the video element.
       </video>
-      <video preload="metadata">
+      <video data-main-only="true" preload="metadata">
         <source src="./assets/images/002.mp4" type="video/mp4">
         Your browser does not support the video element.
       </video>
-      <video preload="metadata">
+      <video data-main-only="true" preload="metadata">
         <source src="./assets/images/0002.mp4" type="video/mp4">
         Your browser does not support the video element.
       </video>
-      <video preload="metadata">
+      <video data-main-only="true" preload="metadata">
         <source src="./assets/images/00002.mp4" type="video/mp4">
         Your browser does not support the video element.
       </video>
@@ -243,14 +262,18 @@
     </figure>
     <figure class="press-card press-3" data-depth="0.5" tabindex="0">
       <span class="tag">Nº 03</span>
-      <img src="./assets/images/03.jpg" alt="Marlize em um momento quieto e cotidiano" loading="lazy" decoding="async"/>
-      <img src="./assets/images/003.jpg" alt="Marlize em um momento quieto e cotidiano (variante 003)" loading="lazy" decoding="async"/>
+      <img src="./assets/images/03.jpg" data-main-only="true" alt="Marlize em um momento quieto e cotidiano" loading="lazy" decoding="async"/>
+      <img src="./assets/images/003.jpg" data-main-only="true" alt="Marlize em um momento quieto e cotidiano (variante 003)" loading="lazy" decoding="async"/>
+      <img src="./assets/images/B6.jpeg" data-bloom-only="true" alt="Marlize — memória B6" loading="lazy" decoding="async"/>
+      <img src="./assets/images/B8.jpeg" data-bloom-only="true" alt="Marlize — memória B8" loading="lazy" decoding="async"/>
       <figcaption class="cap">um pequeno milagre tranquilo</figcaption>
     </figure>
     <figure class="press-card press-4" data-depth="0.65" tabindex="0">
       <span class="tag">Nº 04</span>
-      <img src="./assets/images/04.jpg" alt="Marlize, uma das minhas vistas favoritas" loading="lazy" decoding="async"/>
-      <img src="./assets/images/004.jpg" alt="Marlize, uma das minhas vistas favoritas (variante 004)" loading="lazy" decoding="async"/>
+      <img src="./assets/images/04.jpg" data-main-only="true" alt="Marlize, uma das minhas vistas favoritas" loading="lazy" decoding="async"/>
+      <img src="./assets/images/004.jpg" data-main-only="true" alt="Marlize, uma das minhas vistas favoritas (variante 004)" loading="lazy" decoding="async"/>
+      <img src="./assets/images/B3.jpeg" data-bloom-only="true" alt="Marlize — memória B3" loading="lazy" decoding="async"/>
+      <img src="./assets/images/B5.jpeg" data-bloom-only="true" alt="Marlize — memória B5" loading="lazy" decoding="async"/>
       <figcaption class="cap">ainda minha vista favorita, sempre</figcaption>
     </figure>
     <figure class="press-card press-5" data-depth="0.45" tabindex="0">
@@ -258,7 +281,7 @@
       <img src="./assets/images/05.jpeg" alt="Marlize, exatamente como lembro deste momento" loading="lazy" decoding="async"/>
       <img src="./assets/images/005.jpeg" alt="Marlize, exatamente como lembro deste momento (variante 005)" loading="lazy" decoding="async"/>
       <img src="./assets/images/0005.jpeg" alt="Marlize, exatamente como lembro deste momento (variante 0005)" loading="lazy" decoding="async"/>
-      <img src="./assets/images/00005.JPG" alt="Marlize, exatamente como lembro deste momento (variante 00005)" loading="lazy" decoding="async"/>
+      <img src="./assets/images/00005.JPG" data-main-only="true" alt="Marlize, exatamente como lembro deste momento (variante 00005)" loading="lazy" decoding="async"/>
       <figcaption class="cap">exatamente como me lembro</figcaption>
     </figure>
   </div>
@@ -287,11 +310,11 @@
 <section id="message">
   <div class="section-head">
     <p class="eyebrow">Selado com uma pétala</p>
-    <h2>Uma carta, prensada <em>nesta página</em>, só para você</h2>
+    <h2 id="messageTitle">Uma carta, prensada <em>nesta página</em>, só para você</h2>
   </div>
 
   <div class="letter-wrap">
-    <div class="letter" lang="en">
+    <div class="letter" id="letterContent" lang="en">
       <p><span class="letter-drop">V</span>ocê é a razão pela qual meus dias parecem significar algo.
         Toda manhã em que eu acordo é um pouco mais leve só de saber que você existe —
         e, honestamente, amor, esse é o maior presente que já recebi.
@@ -329,9 +352,9 @@
 <!-- PLAYLIST -->
 <section id="playlist">
   <div class="section-head">
-    <p class="eyebrow">Nossa trilha sonora</p>
-    <h2>Uma canção que lembra a <em>nós dois</em></h2>
-    <p>A faixa que tocou enquanto este jardim crescia. Aperte play e deixe ela ficar ao fundo.</p>
+    <p class="eyebrow" id="playlistEyebrow">Nossa trilha sonora</p>
+    <h2 id="playlistTitle">Uma canção que lembra a <em>nós dois</em></h2>
+    <p id="playlistDescription">A faixa que tocou enquanto este jardim crescia. Aperte play e deixe ela ficar ao fundo.</p>
   </div>
 
   <div class="player" id="player">
@@ -342,7 +365,7 @@
     <div class="track-body">
       <div class="track-meta">
         <div>
-          <div class="track-title">to <em>Marlize</em>, From Jeffrey</div>
+          <div class="track-title" id="trackTitle">to <em>Marlize</em>, From Jeffrey</div>
           <div class="track-sub">MJ</div>
         </div>
         <div class="track-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -362,8 +385,8 @@
 <!-- COUNTDOWN -->
 <section id="countdown">
   <div class="section-head">
-    <p class="eyebrow">Próxima florada</p>
-    <h2>Contando os dias <em>até nossa primeira flor nascer</em></h2>
+    <p class="eyebrow">Surprise</p>
+    <h2>Contando <em>até nossa primeira flor nascer</em></h2>
   </div>
 
   <div class="dial-row" id="dialRow">
@@ -372,6 +395,7 @@
     <div class="dial" data-unit="minutes"><svg viewBox="0 0 150 150"><circle class="track" cx="75" cy="75" r="68"/><circle class="prog" cx="75" cy="75" r="68"/></svg><span class="val">00</span><span class="lbl">Minutos</span></div>
     <div class="dial" data-unit="seconds"><svg viewBox="0 0 150 150"><circle class="track" cx="75" cy="75" r="68"/><circle class="prog" cx="75" cy="75" r="68"/></svg><span class="val">00</span><span class="lbl">Segundos</span></div>
   </div>
+  <a href="#finale" class="pin-submit countdown-bloom-btn" id="bloomBtn">Florar</a>
 </section>
 
 <!-- FINALE -->
@@ -398,6 +422,8 @@
   <div class="mark2">Marlize</div>
   <p>Com todo meu amor, Jeffrey — Call me when you need some love.</p>
 </footer>
+
+<div class="bloom-page" id="bloomPage" aria-hidden="true"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
