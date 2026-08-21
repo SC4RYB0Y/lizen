@@ -34,7 +34,7 @@
     },
     tierOrder: ['minimal', 'low', 'medium', 'high'],
     countdown: {
-      exactDate: new Date(2026, 7, 21)
+      exactDate: new Date('2026-08-21T21:08:25+05:30')
     },
     audio: {
       storeKey: 'marlize-garden-audio-state',
@@ -42,7 +42,8 @@
       targetVolume: 0.85,
       saveIntervalMs: 4000,
       autoStart: true,
-      src: './assets/audio/MJ.mp3'
+      src: './assets/audio/MJ.mp3',
+      bloomSrc: './assets/audio/DIAMANTE.mp3'
     },
     pin: {
       code: '2108',

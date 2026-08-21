@@ -17,6 +17,9 @@
         const slide = document.createElement('div');
         slide.className = 'media-slide';
         if (i===0) slide.classList.add('active');
+        const bloomOnly = el.dataset.bloomOnly === 'true';
+        const mainOnly = el.dataset.mainOnly === 'true';
+        slide.hidden = bloomOnly || (mainOnly && document.documentElement.classList.contains('bloom-page-active'));
         // Ensure videos have controls and reasonable sizing
         if (el.tagName.toLowerCase() === 'video'){
           el.setAttribute('controls','');
@@ -60,8 +63,20 @@
       const AUTOPLAY_DELAY = 4000; // ms
       let autoplayTimer = null;
 
+      function isVisibleSlide(slide){ return !slide.hidden; }
+      function firstVisibleIndex(){
+        return Array.from(slides).findIndex(isVisibleSlide);
+      }
+      function nextVisibleIndex(current, direction){
+        for (let step=1; step<=slides.length; step++){
+          const candidate = (current + step * direction + slides.length) % slides.length;
+          if (isVisibleSlide(slides[candidate])) return candidate;
+        }
+        return current;
+      }
+
       function clearAutoplay(){ if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; } }
-      function startAutoplay(){ clearAutoplay(); autoplayTimer = setInterval(()=>{ idx = (idx + 1) % slides.length; show(idx); }, AUTOPLAY_DELAY); }
+      function startAutoplay(){ clearAutoplay(); autoplayTimer = setInterval(()=>{ idx = nextVisibleIndex(idx, 1); show(idx); }, AUTOPLAY_DELAY); }
 
       function updateUnmuteState(){ if (!hasVideo) return; unmute.textContent = muted ? 'Som desligado' : 'Som ligado'; unmute.setAttribute('aria-label', muted ? 'Ativar som' : 'Desativar som'); }
       updateUnmuteState();
@@ -74,6 +89,9 @@
       });
 
       function show(i){
+        if (!isVisibleSlide(slides[i])) i = firstVisibleIndex();
+        if (i < 0) return;
+        idx = i;
         slides.forEach((s,ii)=>{
           s.classList.toggle('active', ii===i);
           const v = s.querySelector('video');
@@ -90,14 +108,20 @@
         });
       }
 
-      prev.addEventListener('click', ()=>{ idx = (idx - 1 + slides.length) % slides.length; show(idx); startAutoplay(); });
-      next.addEventListener('click', ()=>{ idx = (idx + 1) % slides.length; show(idx); startAutoplay(); });
+      prev.addEventListener('click', ()=>{ idx = nextVisibleIndex(idx, -1); show(idx); startAutoplay(); });
+      next.addEventListener('click', ()=>{ idx = nextVisibleIndex(idx, 1); show(idx); startAutoplay(); });
 
       // Pause autoplay while user hovers or focuses the card
       card.addEventListener('mouseenter', ()=>{ clearAutoplay(); });
       card.addEventListener('mouseleave', ()=>{ startAutoplay(); });
       card.addEventListener('focusin', ()=>{ clearAutoplay(); });
       card.addEventListener('focusout', ()=>{ startAutoplay(); });
+
+      document.addEventListener('bloom-media-change', () => {
+        idx = firstVisibleIndex();
+        show(idx);
+        startAutoplay();
+      });
 
       // start autoplay
       show(idx);

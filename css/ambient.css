@@ -40,6 +40,26 @@ html.tier-low .garden-glow{ animation:none; filter:blur(5px); opacity:.85; }
 /* the foreground layer is intentionally sparse — see JS tier
    counts — so it accents but never masks text */
 
+/* A deliberate full-screen bloom state: the page recedes behind a
+   soft veil while the foreground petals remain crisp and dominant. */
+html.bloom-overload::after{
+  content:''; position:fixed; inset:0; z-index:4; pointer-events:none;
+  background:rgba(23,13,19,.72);
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
+}
+html.bloom-overload body > *:not(#petal-bg):not(#petal-mid):not(#petal-fg):not(.grain):not(.vignette):not(.petal-cursor):not(.bloom-page-nav){
+  filter:blur(10px);
+  opacity:.12;
+  transition:filter .7s ease, opacity .7s ease;
+}
+html.bloom-overload #petal-fg{
+  opacity:1;
+  filter:none;
+}
+
+.bloom-page{ display:none; }
+
 .grain{
   position:fixed; inset:0; z-index:6; pointer-events:none;
   opacity:.03; mix-blend-mode:overlay;

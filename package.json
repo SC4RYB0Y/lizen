@@ -5,6 +5,5 @@
   "scripts": {
     "build": "echo \"No build required for static deploy\"",
     "build:netlify": "echo \"No build required for static deploy\""
-  },
-  "dependencies": {}
+  }
 }
